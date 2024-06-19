@@ -5,7 +5,9 @@ function Navbar() {
   return (
     <nav className={styles.navbar}>
       <ul>
-        <li className={styles.title}>myMoney</li>
+        <li className={styles.title}>
+          <Link to="/">myMoney</Link>
+        </li>
 
         <li>
           <Link to="/login">로그인</Link>
