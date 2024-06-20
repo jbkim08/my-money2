@@ -23,11 +23,14 @@ function Navbar() {
           </>
         )}
         {user && (
-          <li>
-            <button className="btn" onClick={logout}>
-              로그아웃
-            </button>
-          </li>
+          <>
+            <li>안녕하세요, {user.displayName}</li>
+            <li>
+              <button className="btn" onClick={logout}>
+                로그아웃
+              </button>
+            </li>
+          </>
         )}
       </ul>
     </nav>
