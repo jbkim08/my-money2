@@ -1,4 +1,4 @@
-import TransactionForm from "../../Components/TransactionForm";
+import TransactionForm from "./TransactionForm";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useCollection } from "../../hooks/useCollection";
 import styles from "./Home.module.css";
