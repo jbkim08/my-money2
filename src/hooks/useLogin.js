@@ -14,7 +14,7 @@ export const useLogin = () => {
     try {
       //유저 로그인
       const res = await fireauth.signInWithEmailAndPassword(email, password);
-      //로그인 액션 디스패치
+      //로그인 액션 디스패치 => 스테이트 객체에 user가 업데이트 됨
       dispatch({ type: "LOGIN", payload: res.user });
 
       setError(null);
