@@ -1,14 +1,17 @@
 import { useState } from "react";
 import styles from "./Signup.module.css";
+import { useSignup } from "../../hooks/useSignup";
 
 function Signup() {
+  const { signup, error, isPending } = useSignup();
+
   const [email, setEmail] = useState("");
   const [passowrd, setPassword] = useState("");
   const [name, setName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, passowrd, name);
+    signup(email, passowrd, name);
   };
   return (
     <form onSubmit={handleSubmit} className={styles["signup-form"]}>
@@ -40,7 +43,14 @@ function Signup() {
         />
       </label>
 
-      <button className="btn">가입하기</button>
+      {/* 가입 진행중일경우에는 로딩버튼만 나옴 */}
+      {!isPending && <button className="btn">가입하기</button>}
+      {isPending && (
+        <button className="btn" disabled>
+          loading
+        </button>
+      )}
+      {error && <p>{error}</p>}
     </form>
   );
 }
