@@ -7,7 +7,11 @@ import TransactionList from "./TranactionList";
 function Home() {
   const { user } = useAuthContext();
   //트랜잭션 컬렉션(DB)의 데이터들을 가져옴
-  const { documents, error } = useCollection("transactions");
+  const { documents, error } = useCollection("transactions", [
+    "uid",
+    "==",
+    user.uid,
+  ]);
   return (
     <div className={styles.container}>
       <div className={styles.content}>
